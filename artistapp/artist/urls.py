@@ -4,10 +4,14 @@ from .views import *
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register('content',ContentView)
+router.register('content',ContentView,)
+router.register('register',ProfileRegisterView)
+
 urlpatterns = [
     path('',include(router.urls)),
-    path('register/',ProfileRegisterView.as_view(),name='register')
+    path('register/',include(router.urls),name='register'),
+    path('login/',UserLoginView.as_view(),name='login'),
+
 
 ]
 
