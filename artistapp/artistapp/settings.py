@@ -25,7 +25,7 @@ SECRET_KEY = '1uaaddhzb*x63x@#0jat2f79@gpcsm^+p-1w!r&!@*wl0*p&_!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'artist',
     'phonenumber_field',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
