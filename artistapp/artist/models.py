@@ -1,18 +1,11 @@
+from django.conf import settings
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
-
-class Content(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField(max_length=150)
-    content = models.FileField()
-
-
-    def __str__(self):
-        return self.name
-
 
 class Profile(models.Model):
     name = models.CharField(max_length=100)
@@ -23,5 +16,12 @@ class Profile(models.Model):
     phone = PhoneNumberField()
     user = models.OneToOneField(User,on_delete=models.SET_NULL,null=True)
 
+class Content(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(max_length=150)
+    content = models.FileField()
 
+
+    def __str__(self):
+        return self.name
 
