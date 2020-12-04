@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'likes',
     'rest_framework',
     'artist',
     'phonenumber_field',
@@ -128,3 +129,9 @@ MEDIA_URL = '/media/'
 _PATH = os.path.abspath(os.path.dirname(__file__))
 
 MEDIA_ROOT = os.path.join(_PATH, 'files', 'media')
+
+LIKES_MODELS = {
+    "artist.Content": {
+        'serializer': 'artist.serializers.ContentSerializer'
+    },
+}
