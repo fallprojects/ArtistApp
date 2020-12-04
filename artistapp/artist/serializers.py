@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from rest_framework.fields import CurrentUserDefault
+
 from .models import *
 from django.contrib.auth.models import User
 
@@ -32,3 +34,17 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         Profile.objects.create(user=user, **profile_data)
         return user
+
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=CurrentUserDefault())
+
+    class Meta:
+         model = Comment
+         fields = ['user','content','text','date_create']
+
+
+
+
+
