@@ -25,3 +25,10 @@ class Content(models.Model):
     def __str__(self):
         return self.name
 
+class Comment(models.Model):
+    content = models.ForeignKey(Content,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+    text = models.TextField()
+    date_create = models.DateTimeField(auto_now_add=True)
+
+
