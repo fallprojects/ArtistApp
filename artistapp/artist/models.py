@@ -32,3 +32,5 @@ class Comment(models.Model):
     date_create = models.DateTimeField(auto_now_add=True)
 
 
+
+
