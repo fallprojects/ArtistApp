@@ -38,11 +38,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    user = serializers.HiddenField(default=CurrentUserDefault())
 
     class Meta:
-         model = Comment
-         fields = ['user','content','text','date_create']
+        model = Comment
+        fields = '__all__'
+
+
+
 
 
 
